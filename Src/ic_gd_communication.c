@@ -40,6 +40,9 @@ uint8_t reg_val_2[BUFFERSIZE] ={
 
 };
 
+
+
+
 /* process data function in different situations (1p's bytes(1,2,4) to 2p's bytes(1,2,4))*/
 //
 //
