@@ -137,7 +137,7 @@ int main(void)
 
 
   /* USER CODE END 1 */
-
+  
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -165,13 +165,16 @@ int main(void)
   /* Initialize IC-GD Register */
 
   IC_GD_Reg_Init(reg_address_1, reg_val_1, reg_val_2);
+  mode_setting();  //manually setting the mode by dip-swithes
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
   while (1)
   {
+
 		IOSEL1_1 = IC_GD_Read_Reg_1(0x00);
 		IOSEL1_2 = IC_GD_Read_Reg_1(0x10);
 
@@ -859,7 +862,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV8;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 

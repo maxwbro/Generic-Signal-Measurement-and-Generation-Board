@@ -32,6 +32,7 @@
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN Private defines */
+
 #define LED1_Enable()                 HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
 #define LED1_Disable()                HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_RESET);
 #define LED2_Enable()                 HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_SET);
@@ -40,11 +41,17 @@
 #define LED3_Disable()                HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
 #define LED4_Enable()                 HAL_GPIO_WritePin(GPIOD, GPIO_PIN_15, GPIO_PIN_SET);
 #define LED4_Disable()                HAL_GPIO_WritePin(GPIOD, GPIO_PIN_15, GPIO_PIN_RESET);
+
+;
 /* USER CODE END Private defines */
 
 void MX_GPIO_Init(void);
 
 /* USER CODE BEGIN Prototypes */
+
+void mode_setting(void);
+uint8_t dip_write_register_1(uint8_t reg, int a, int b, int c, int d, int e, int f, int g, int h);
+uint8_t dip_write_register_2(uint8_t reg, int a, int b, int c, int d, int e, int f, int g, int h);
 
 /* USER CODE END Prototypes */
 
