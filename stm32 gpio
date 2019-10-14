@@ -1,0 +1,197 @@
+initialise()
+{
+	//initialising gpio
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_4;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_2MHz;
+    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;
+    GPIO_Init(GPIOB, &GPIO_InitStruct);
+	
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_5;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_2MHz;
+    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;
+    GPIO_Init(GPIOB, &GPIO_InitStruct);
+	
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_6;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_2MHz;
+    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;
+    GPIO_Init(GPIOB, &GPIO_InitStruct);
+	
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_7;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_2MHz;
+    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;
+    GPIO_Init(GPIOB, &GPIO_InitStruct);
+	
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_8;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_2MHz;
+    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;
+    GPIO_Init(GPIOB, &GPIO_InitStruct);
+	
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_9;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_2MHz;
+    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;
+    GPIO_Init(GPIOB, &GPIO_InitStruct);
+	
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_10;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_2MHz;
+    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;
+    GPIO_Init(GPIOB, &GPIO_InitStruct);
+	
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_11;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_2MHz;
+    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;
+    GPIO_Init(GPIOB, &GPIO_InitStruct);
+	
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_12;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_2MHz;
+    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;
+    GPIO_Init(GPIOB, &GPIO_InitStruct);
+	
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_13;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_2MHz;
+    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;
+    GPIO_Init(GPIOB, &GPIO_InitStruct);
+	
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_14;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_2MHz;
+    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;
+    GPIO_Init(GPIOB, &GPIO_InitStruct);
+	
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_15;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_2MHz;
+    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;
+    GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+setup()
+{	
+	/*initialise the IC-GD registers based on dip switch input
+		to set ic-gd registers turn pin 4 off before turning on the stm32. 
+		to program configure the 7 dipswitches (15-9) to configure the channel according to the table.
+		then change pin 6 and 7 to a different channel to finalise the choice. once done ensure the switches are correct for the chosen channel then switch pin 4 off.
+	*/
+	int frequencies = (1000,2000,3000,4000);
+	GPIO_ReadInputData(GPIOB); // reads all the initialised gpio
+	while(!GPIO_Pin_5) // skip initialisation if pin 4 activated
+	{
+		//8,9 are used to select which code input, 10-15 are programming
+		//icgd 0 channel 1
+		if(!GPIO_8 &&!GPIO_9) //channel 1 config line 1
+		{
+			//15 is envif_1
+			//d0 is 0 no output
+			//12,13,14 are io_sel_1p
+			if(!GPIO_Pin_9 && !GPIO_Pin_10)
+			{
+				write_register(0,0x00,GPIO_Pin_15,1,1,1,0,GPIO_Pin_14,GPIO_Pin_13,GPIO_Pin_12);
+			}
+			else
+			{
+				write_register(0,0x00,GPIO_Pin_15,0,0,0,0,GPIO_Pin_14,GPIO_Pin_13,GPIO_Pin_12)
+			}
+			//10,11 di select_1
+			write_regsiter(0,0x01,0,0,0,0,0,0,GPIO_Pin_11,GPIO_Pin_10);
+			//vici_1 is set to +-10v (000)
+			//CO_sel_1 is set to 0-20mv (00_
+			write_regsiter(0,0x02,0,0,0,0,0,0,0,0);
+			
+		}
+		//ic-gd 0 channel 2
+		if(GPIO_8 && !GPIO_9)
+		{
+			//15 is envif_1
+			//d0 is 0 no output
+			//12,13,14 are io_sel_1p
+			if(!GPIO_Pin_9 && !GPIO_Pin_10)
+			{
+				write_register(0,0x10,GPIO_Pin_15,1,1,1,0,GPIO_Pin_14,GPIO_Pin_13,GPIO_Pin_12);
+			}
+			else
+			{
+				write_register(0,0x10,GPIO_Pin_15,0,0,0,0,GPIO_Pin_14,GPIO_Pin_13,GPIO_Pin_12)
+			}
+			//10,11 di select_1
+			write_regsiter(0,0x11,0,0,0,0,0,0,GPIO_Pin_11,GPIO_Pin_10);
+			//vici_1 is set to +-10v (000)
+			//CO_sel_1 is set to 0-20mv (00_
+			write_regsiter(0,0x12,0,0,0,0,0,0,0,0);
+			
+		}
+		//icgd 1 channel 1
+		if(!GPIO_8 &&GPIO_9)
+		{
+			//15 is envif_1
+			//d0 is 0 no output
+			//12,13,14 are io_sel_1p
+			if(!GPIO_Pin_9 && !GPIO_Pin_10)
+			{
+				write_register(1,0x00,GPIO_Pin_15,1,1,1,0,GPIO_Pin_14,GPIO_Pin_13,GPIO_Pin_12);
+			}
+			else
+			{
+				write_register(1,0x00,GPIO_Pin_15,0,0,0,0,GPIO_Pin_14,GPIO_Pin_13,GPIO_Pin_12)
+			}
+			//10,11 di select_1
+			write_regsiter(1,0x01,0,0,0,0,0,0,GPIO_Pin_11,GPIO_Pin_10);
+			//vici_1 is set to +-10v (000)
+			//CO_sel_1 is set to 0-20mv (00_
+			write_regsiter(1,0x02,0,0,0,0,0,0,0,0);
+			
+		}
+			
+		}
+		//ic-gd 1 channel 2
+		if(GPIO_8 && GPIO_9)
+		{
+			//15 is envif_1
+			//d0 is 0 no output
+			//12,13,14 are io_sel_1p
+			if(!GPIO_Pin_9 && !GPIO_Pin_10)
+			{
+				write_register(1,0x10,GPIO_Pin_15,1,1,1,0,GPIO_Pin_14,GPIO_Pin_13,GPIO_Pin_12);
+			}
+			else
+			{
+				write_register(1,0x10,GPIO_Pin_15,0,0,0,0,GPIO_Pin_14,GPIO_Pin_13,GPIO_Pin_12)
+			}
+			//10,11 di select_1
+			write_regsiter(1,0x11,0,0,0,0,0,0,GPIO_Pin_11,GPIO_Pin_10);
+			//vici_1 is set to +-10v (000)
+			//CO_sel_1 is set to 0-20mv (00_
+			write_regsiter(1,0x12,0,0,0,0,0,0,0,0);
+		}
+		GPIO_ReadInputData(GPIOB);//refresh every loop to keep up to date
+		
+		//select the frequency using 6,7
+		write_register(0,
+		
+	}	
+	
+	
+}
+
+//program to write ic-gd register given address, reigster and individual bits
+uint8 write register(int icgd_address, uint8 register, int a, int b, int c, int d, int e, int f, int g, int h)
+{
+	
+	uint8 byte_send = a*80+b*40+c*20+d*10+e*8+f*4+g*2+h
+	status= IC_GD_write_reg(0xA0+icgd_address, register)
+	status= IC_GD_write_reg(0xA0+icgd_address, byte_send)
+	return status;
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	TODO
+	//setup stm32
+	
+	//setupic-gd
+		//set ai upper and lower
+	//loop stm32
+	
