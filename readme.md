@@ -1,6 +1,6 @@
 # Generic-Signal-Measurement-and-Generation-Board
 
-SPI 2 IC_GD COMMUNICATION /version 0.7/ 
+SPI 2 IC_GD COMMUNICATION /version 1.0/ 
 ----------------------------------------------------------------
 
 
