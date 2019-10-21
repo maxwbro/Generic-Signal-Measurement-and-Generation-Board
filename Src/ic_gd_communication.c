@@ -64,7 +64,7 @@ uint8_t* Process_Data_1p2p_1to4(uint8_t opcode, uint8_t data_1p, uint32_t data_2
 
 	static uint8_t Input[6];
 
-	uint8_t cmd[4];
+	uint8_t cmd[6];
 	cmd[0] = opcode;
 	cmd[1] = data_1p;
 	cmd[2] = (uint8_t)(data_2p >> 24);

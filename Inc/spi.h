@@ -61,7 +61,7 @@ extern SPI_HandleTypeDef hspi1;
 
 /* USER CODE BEGIN Private defines */
 
-#define BUFFERSIZE                   49
+#define BUFFERSIZE                   45
 
 
 /* opcodes write and read the register */
@@ -79,7 +79,7 @@ extern SPI_HandleTypeDef hspi1;
 
 /* time out */
 
-#define time_out                     0x00
+#define time_out                     0x01   // time_out for each 1-byte
 
 /*ENABLE iC-GD*/
 

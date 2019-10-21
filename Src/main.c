@@ -53,8 +53,8 @@
 /* iC-GD register address FOR EACH CHIPS */
 
 uint8_t reg_address_1[BUFFERSIZE] ={
-		0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09,
-		0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1B,
+	    0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09,
+		0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1B,
 		0x28, 0x29, 0x2A, 0x2B, 0x2C, 0x2D, 0x2E, 0x2F,
 		0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x39, 0x3A, 0x3B, 0x3D,
 		0x40, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47,
@@ -62,8 +62,8 @@ uint8_t reg_address_1[BUFFERSIZE] ={
 };
 
 uint8_t reg_val_1[BUFFERSIZE] ={
-		DI_VO, 0x03, 0x00, 0x00, 0x00, 0x00, 0x7F, 0xFF, 0x00, 0x70,
-		DI_VO, 0x03, 0x07, 0x00, 0x00, 0x00, 0x7F, 0xFF, 0x00, 0x70, 0x00,
+		0x00, 0x00, 0x00, 0x00, 0x7F, 0xFF, 0x00, 0x70,
+	    0x07, 0x00, 0x00, 0x00, 0x7F, 0xFF, 0x00, 0x70, 0x00,
 		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0B, 0xA6, 0x00,
 		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -71,8 +71,8 @@ uint8_t reg_val_1[BUFFERSIZE] ={
 };
 
 uint8_t reg_val_2[BUFFERSIZE] ={
-		VI_DO, 0x03, 0x00, 0x00, 0x00, 0x00, 0x7F, 0xFF, 0x00, 0x70,
-		VI_CO, 0x03, 0x07, 0x00, 0x00, 0x00, 0x7F, 0xFF, 0x00, 0x70, 0x00,
+		0x00, 0x00, 0x00, 0x00, 0x7F, 0xFF, 0x00, 0x70,
+		0x07, 0x00, 0x00, 0x00, 0x7F, 0xFF, 0x00, 0x70, 0x00,
 		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0B, 0xA6, 0x00,
 		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -197,8 +197,8 @@ int main(void)
 
 		   data1_1s[0] = IC_GD_Read_Reg_1(0x34);   // 1s data input
 		   data1_1s[1] = IC_GD_Read_Reg_1(0x35);
-		   data1_2s[0] = IC_GD_Read_Reg_1(0x34);   // 1s data input
-		   data1_2s[1] = IC_GD_Read_Reg_1(0x35);
+		   data1_2s[0] = IC_GD_Read_Reg_1(0x36);   // 1s data input
+		   data1_2s[1] = IC_GD_Read_Reg_1(0x37);
 
        if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)== GPIO_PIN_RESET )
        {
@@ -231,8 +231,8 @@ int main(void)
 
 		   data1_1s[0] = IC_GD_Read_Reg_1(0x34);   // 1s data input
 		   data1_1s[1] = IC_GD_Read_Reg_1(0x35);
-		   data1_2s[0] = IC_GD_Read_Reg_1(0x34);   // 1s data input
-		   data1_2s[1] = IC_GD_Read_Reg_1(0x35);
+		   data1_2s[0] = IC_GD_Read_Reg_1(0x36);   // 1s data input
+		   data1_2s[1] = IC_GD_Read_Reg_1(0x37);
 
 	       if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)== GPIO_PIN_RESET )
 	       {
@@ -267,8 +267,8 @@ int main(void)
 
 		   data1_1s[0] = IC_GD_Read_Reg_1(0x34);   // 1s data input
 		   data1_1s[1] = IC_GD_Read_Reg_1(0x35);
-		   data1_2s[0] = IC_GD_Read_Reg_1(0x34);   // 1s data input
-		   data1_2s[1] = IC_GD_Read_Reg_1(0x35);
+		   data1_2s[0] = IC_GD_Read_Reg_1(0x36);   // 1s data input
+		   data1_2s[1] = IC_GD_Read_Reg_1(0x37);
 
 	       if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8) == GPIO_PIN_RESET )
 	       {
@@ -301,8 +301,8 @@ int main(void)
 
 		   data1_1s[0] = IC_GD_Read_Reg_1(0x34);   // 1s data input
 		   data1_1s[1] = IC_GD_Read_Reg_1(0x35);
-		   data1_2s[0] = IC_GD_Read_Reg_1(0x34);   // 1s data input
-		   data1_2s[1] = IC_GD_Read_Reg_1(0x35);
+		   data1_2s[0] = IC_GD_Read_Reg_1(0x36);   // 1s data input
+		   data1_2s[1] = IC_GD_Read_Reg_1(0x37);
 
 	       if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)== GPIO_PIN_RESET )
 	       {
@@ -336,8 +336,8 @@ int main(void)
 
 		   data1_1s[0] = IC_GD_Read_Reg_1(0x34);   // 1s data input
 		   data1_1s[1] = IC_GD_Read_Reg_1(0x35);
-		   data1_2s[0] = IC_GD_Read_Reg_1(0x34);   // 1s data input
-		   data1_2s[1] = IC_GD_Read_Reg_1(0x35);
+		   data1_2s[0] = IC_GD_Read_Reg_1(0x36);   // 1s data input
+		   data1_2s[1] = IC_GD_Read_Reg_1(0x37);
 
 	       if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)== GPIO_PIN_RESET )
 	       {
@@ -373,8 +373,8 @@ int main(void)
 
 		   data1_1s[0] = IC_GD_Read_Reg_1(0x34);   // 1s data input
 		   data1_1s[1] = IC_GD_Read_Reg_1(0x35);
-		   data1_2s[0] = IC_GD_Read_Reg_1(0x34);   // 1s data input
-		   data1_2s[1] = IC_GD_Read_Reg_1(0x35);
+		   data1_2s[0] = IC_GD_Read_Reg_1(0x36);   // 1s data input
+		   data1_2s[1] = IC_GD_Read_Reg_1(0x37);
 
 	       if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)== GPIO_PIN_RESET )
 	       {
@@ -408,8 +408,8 @@ int main(void)
 
 		   data1_1s[0] = IC_GD_Read_Reg_1(0x34);   // 1s data input
 		   data1_1s[1] = IC_GD_Read_Reg_1(0x35);
-		   data1_2s[0] = IC_GD_Read_Reg_1(0x34);   // 1s data input
-		   data1_2s[1] = IC_GD_Read_Reg_1(0x35);
+		   data1_2s[0] = IC_GD_Read_Reg_1(0x36);   // 1s data input
+		   data1_2s[1] = IC_GD_Read_Reg_1(0x37);
 
 	       if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)== GPIO_PIN_RESET )
 	       {
@@ -446,8 +446,8 @@ int main(void)
 
 		   data1_1s[0] = IC_GD_Read_Reg_1(0x34);   // 1s data input
 		   data1_1s[1] = IC_GD_Read_Reg_1(0x35);
-		   data1_2s[0] = IC_GD_Read_Reg_1(0x34);   // 1s data input
-		   data1_2s[1] = IC_GD_Read_Reg_1(0x35);
+		   data1_2s[0] = IC_GD_Read_Reg_1(0x36);   // 1s data input
+		   data1_2s[1] = IC_GD_Read_Reg_1(0x37);
 
 	       if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)== GPIO_PIN_RESET )
 	       {
@@ -485,8 +485,8 @@ int main(void)
 
 		   data1_1s[0] = IC_GD_Read_Reg_1(0x34);   // 1s data input
 		   data1_1s[1] = IC_GD_Read_Reg_1(0x35);
-		   data1_2s[0] = IC_GD_Read_Reg_1(0x34);   // 1s data input
-		   data1_2s[1] = IC_GD_Read_Reg_1(0x35);
+		   data1_2s[0] = IC_GD_Read_Reg_1(0x36);   // 1s data input
+		   data1_2s[1] = IC_GD_Read_Reg_1(0x37);
 
 	       if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)== GPIO_PIN_RESET )
 	       {
@@ -521,8 +521,8 @@ int main(void)
 
 		   data2_1s[0] = IC_GD_Read_Reg_2(0x34);   // 1s data input
 		   data2_1s[1] = IC_GD_Read_Reg_2(0x35);
-		   data2_2s[0] = IC_GD_Read_Reg_2(0x34);   // 1s data input
-		   data2_2s[1] = IC_GD_Read_Reg_2(0x35);
+		   data2_2s[0] = IC_GD_Read_Reg_2(0x36);   // 1s data input
+		   data2_2s[1] = IC_GD_Read_Reg_2(0x37);
 
 	       if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)== GPIO_PIN_RESET )
 	       {
@@ -555,8 +555,8 @@ int main(void)
 
 		   data2_1s[0] = IC_GD_Read_Reg_2(0x34);   // 1s data input
 		   data2_1s[1] = IC_GD_Read_Reg_2(0x35);
-		   data2_2s[0] = IC_GD_Read_Reg_2(0x34);   // 1s data input
-		   data2_2s[1] = IC_GD_Read_Reg_2(0x35);
+		   data2_2s[0] = IC_GD_Read_Reg_2(0x36);   // 1s data input
+		   data2_2s[1] = IC_GD_Read_Reg_2(0x37);
 
 	       if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)== GPIO_PIN_RESET )
 	       {
@@ -590,8 +590,8 @@ int main(void)
 
 		   data2_1s[0] = IC_GD_Read_Reg_2(0x34);   // 1s data input
 		   data2_1s[1] = IC_GD_Read_Reg_2(0x35);
-		   data2_2s[0] = IC_GD_Read_Reg_2(0x34);   // 1s data input
-		   data2_2s[1] = IC_GD_Read_Reg_2(0x35);
+		   data2_2s[0] = IC_GD_Read_Reg_2(0x36);   // 1s data input
+		   data2_2s[1] = IC_GD_Read_Reg_2(0x37);
 
 	       if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)== GPIO_PIN_RESET )
 	       {
@@ -623,8 +623,8 @@ int main(void)
 
 		   data2_1s[0] = IC_GD_Read_Reg_2(0x34);   // 1s data input
 		   data2_1s[1] = IC_GD_Read_Reg_2(0x35);
-		   data2_2s[0] = IC_GD_Read_Reg_2(0x34);   // 1s data input
-		   data2_2s[1] = IC_GD_Read_Reg_2(0x35);
+		   data2_2s[0] = IC_GD_Read_Reg_2(0x36);   // 1s data input
+		   data2_2s[1] = IC_GD_Read_Reg_2(0x37);
 
 	       if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)== GPIO_PIN_RESET )
 	       {
@@ -657,8 +657,8 @@ int main(void)
 
 		   data2_1s[0] = IC_GD_Read_Reg_2(0x34);   // 1s data input
 		   data2_1s[1] = IC_GD_Read_Reg_2(0x35);
-		   data2_2s[0] = IC_GD_Read_Reg_2(0x34);   // 1s data input
-		   data2_2s[1] = IC_GD_Read_Reg_2(0x35);
+		   data2_2s[0] = IC_GD_Read_Reg_2(0x36);   // 1s data input
+		   data2_2s[1] = IC_GD_Read_Reg_2(0x37);
 
 	       if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)== GPIO_PIN_RESET )
 	       {
@@ -693,8 +693,8 @@ int main(void)
 
 		   data2_1s[0] = IC_GD_Read_Reg_2(0x34);   // 1s data input
 		   data2_1s[1] = IC_GD_Read_Reg_2(0x35);
-		   data2_2s[0] = IC_GD_Read_Reg_2(0x34);   // 1s data input
-		   data2_2s[1] = IC_GD_Read_Reg_2(0x35);
+		   data2_2s[0] = IC_GD_Read_Reg_2(0x36);   // 1s data input
+		   data2_2s[1] = IC_GD_Read_Reg_2(0x37);
 
 	       if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)== GPIO_PIN_RESET )
 	       {
@@ -728,8 +728,8 @@ int main(void)
 
 		   data2_1s[0] = IC_GD_Read_Reg_2(0x34);   // 1s data input
 		   data2_1s[1] = IC_GD_Read_Reg_2(0x35);
-		   data2_2s[0] = IC_GD_Read_Reg_2(0x34);   // 1s data input
-		   data2_2s[1] = IC_GD_Read_Reg_2(0x35);
+		   data2_2s[0] = IC_GD_Read_Reg_2(0x36);   // 1s data input
+		   data2_2s[1] = IC_GD_Read_Reg_2(0x37);
 
 	       if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)== GPIO_PIN_RESET )
 	       {
@@ -764,8 +764,8 @@ int main(void)
 
 		   data2_1s[0] = IC_GD_Read_Reg_2(0x34);  // 1s data input
 		   data2_1s[1] = IC_GD_Read_Reg_2(0x35);
-		   data2_2s[0] = IC_GD_Read_Reg_2(0x34);   // 2s data input
-		   data2_2s[1] = IC_GD_Read_Reg_2(0x35);
+		   data2_2s[0] = IC_GD_Read_Reg_2(0x36);   // 2s data input
+		   data2_2s[1] = IC_GD_Read_Reg_2(0x37);
 
 	       if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)== GPIO_PIN_RESET )
 	       {
@@ -803,8 +803,8 @@ int main(void)
 
 		   data2_1s[0] = IC_GD_Read_Reg_2(0x34);  // 1s data input
 		   data2_1s[1] = IC_GD_Read_Reg_2(0x35);
-		   data2_2s[0] = IC_GD_Read_Reg_2(0x34);  // 2s data input
-		   data2_2s[1] = IC_GD_Read_Reg_2(0x35);
+		   data2_2s[0] = IC_GD_Read_Reg_2(0x36);  // 2s data input
+		   data2_2s[1] = IC_GD_Read_Reg_2(0x37);
 
 	       if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)== GPIO_PIN_RESET )
 	       {

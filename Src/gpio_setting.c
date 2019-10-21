@@ -3,7 +3,7 @@
 void mode_setting()
 {
 
-	int PB4 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4)
+
 	int PB5 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5);
 	int PB8 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_8);
 	int PB9 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9);
@@ -14,9 +14,9 @@ void mode_setting()
 	int PB14 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14);
 	int PB15 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_15);
 
-		while(PB4 == GPIO_PIN_RESET) // skip initialisation if pin 4 activated
+		while(PB5 == GPIO_PIN_RESET) // skip initialisation if pin 4 activated
 		{
-			//4 is used to enter configuration mode, 5 is used for writing to EEPROM, 6 and 7 is for frequency selection 8,9 are used to select which code input, 10-15 are programming
+			//8,9 are used to select which code input, 10-15 are programming
 
 			/* icgd 0 channel 1 */
 
@@ -110,11 +110,7 @@ void mode_setting()
 				dip_write_register_2(0x12,0,0,0,0,0,0,0,0);
 			}
 
-	If( PB5 == GPIO_PIN_SET)
-	{
-		dip_write_register_1(0x40,1,0,0,1,0,1,1,0)
-		dip_write_register_2(0x40,1,0,0,1,0,1,1,0)
-	}
+
 }
 
 
