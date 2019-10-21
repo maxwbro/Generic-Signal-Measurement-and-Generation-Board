@@ -1,8 +1,9 @@
 # Generic-Signal-Measurement-and-Generation-Board
 
-SPI 2 IC_GD COMMUNICATION /version 1.0/ 
+SPI 2 IC_GD COMMUNICATION /version FIX/ 
 ----------------------------------------------------------------
-
+1.Fixed some wrong syntax.
+2.initialization of register except the I/O setting address.
 
 THESE CODES are for all SPI 2 IC_GD communication functions.    
 Src and Inc files contain main codes will be used in main.c.   	  
