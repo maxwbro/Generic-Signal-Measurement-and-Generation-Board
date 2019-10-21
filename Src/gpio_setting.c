@@ -3,7 +3,7 @@
 void mode_setting()
 {
 
-
+	int PB4 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4)
 	int PB5 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5);
 	int PB8 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_8);
 	int PB9 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_9);
@@ -110,7 +110,11 @@ void mode_setting()
 				dip_write_register_2(0x12,0,0,0,0,0,0,0,0);
 			}
 
-
+	If( PB4 == GPIO_PIN_SET)
+	{
+		dip_write_register_1(0x40,1,0,0,1,0,1,1,0)
+		dip_write_register_2(0x40,1,0,0,1,0,1,1,0)
+	}
 }
 
 
