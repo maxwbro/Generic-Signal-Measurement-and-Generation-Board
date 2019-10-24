@@ -25,7 +25,7 @@ void mode_setting()
 				//15 is envif_1
 				//d0 is 0 no output
 				//12,13,14 are io_sel_1p
-				if(PB9 == GPIO_PIN_RESET && PB10 == GPIO_PIN_RESET)
+				if(PB10 == GPIO_PIN_RESET && PB11 == GPIO_PIN_RESET)
 				{
 					dip_write_register_1(0x00,PB15,1,1,1,0,PB14,PB13,PB12);
 				}
@@ -49,7 +49,7 @@ void mode_setting()
 				//15 is envif_1
 				//d0 is 0 no output
 				//12,13,14 are io_sel_1p
-				if(PB9 == GPIO_PIN_RESET && PB10 == GPIO_PIN_RESET)
+				if(PB10 == GPIO_PIN_RESET && PB11 == GPIO_PIN_RESET)
 				{
 					dip_write_register_1(0x10,PB15,1,1,1,0,PB14,PB13,PB12);
 				}
@@ -71,7 +71,7 @@ void mode_setting()
 				//15 is envif_1
 				//d0 is 0 no output
 				//12,13,14 are io_sel_1p
-				if(PB9 == GPIO_PIN_RESET && PB10 == GPIO_PIN_RESET)
+				if(PB10 == GPIO_PIN_RESET && PB11 == GPIO_PIN_RESET)
 				{
 					dip_write_register_2(0x00,PB15,1,1,1,0,PB14,PB13,PB12);
 				}
@@ -95,7 +95,7 @@ void mode_setting()
 				//15 is envif_1
 				//d0 is 0 no output
 				//12,13,14 are io_sel_1p
-				if(PB9 == GPIO_PIN_RESET && PB10 == GPIO_PIN_RESET)
+				if(PB10 == GPIO_PIN_RESET && PB11 == GPIO_PIN_RESET)
 				{
 					dip_write_register_2(0x10,PB15,1,1,1,0,PB14,PB13,PB12);
 				}
